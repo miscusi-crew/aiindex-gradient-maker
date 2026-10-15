@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gradient Maker</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="base.css">
+<style>
+  main{max-width:48rem}
+  .preview{height:16rem;border-radius:1rem;border:1px solid var(--line);margin:.75rem 0}
+  .controls{display:grid;gap:.75rem}
+  .stops{display:grid;gap:.4rem}
+  .stop{display:grid;grid-template-columns:3rem 1fr 3.5rem auto;gap:.5rem;align-items:center}
+  .stop input[type=color]{width:3rem;height:2.2rem;padding:.1rem}
+  .code{display:flex;gap:.5rem;align-items:stretch}
+  .code output{flex:1;padding:.6rem;border:1px solid var(--line);border-radius:.5rem;background:var(--card);font:13px ui-monospace,Menlo,Consolas,monospace;word-break:break-all}
+</style>
+</head>
+<body>
+<main>
+  <h1>Gradient Maker</h1>
+  <p class="sub">Pick colours and an angle, then copy the CSS.</p>
+  <div class="preview" id="preview" role="img" aria-label="Gradient preview"></div>
+  <div class="controls">
+    <div class="row">
+      <label for="type">Type</label>
+      <select id="type"><option value="linear">Linear</option><option value="radial">Radial</option></select>
+      <label for="angle">Angle</label>
+      <input type="range" id="angle" min="0" max="360" value="135"><span id="angle-v">135°</span>
+    </div>
+    <div class="stops" id="stops"></div>
+    <div class="row"><button id="add">Add colour</button><button id="random" class="primary">Random</button></div>
+    <div class="code"><output id="css"></output><button id="copy">Copy</button></div>
+    <p class="msg" id="msg" role="status"></p>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
